@@ -144,8 +144,20 @@ export default function Home() {
         ::-webkit-scrollbar-thumb:hover { background: ${THEMES[theme].dark}cc; }
       `}</style>
 
+      {/* ✅ Logo (Top-Left) */}
+      <div
+        className="absolute top-6 left-8 md:left-20 flex items-center gap-2 px-4 py-2 rounded-xl shadow-lg cursor-pointer select-none"
+        style={{
+          background: "rgba(255,255,255,0.25)",
+          backdropFilter: "blur(10px)",
+          color: THEMES[theme].dark,
+        }}
+      >
+        <span className="font-bold text-lg tracking-wide">OneSentJournal</span>
+      </div>
+
       {/* Theme + Settings */}
-      <div className="absolute top-6 right-4 md:right-10 flex items-center gap-3">
+      <div className="absolute top-6 right-4 md:right-20 flex items-center gap-3">
         <div
           className="flex items-center gap-2 px-3 py-2 rounded-xl shadow-lg"
           style={{ background: "rgba(255,255,255,0.25)", backdropFilter: "blur(10px)" }}
@@ -168,18 +180,19 @@ export default function Home() {
         >
           <Settings size={20} />
         </button>
+        <button
+          onClick={handleLogout}
+          className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-sm shadow"
+        >
+          Logout
+        </button>
       </div>
 
       {/* Input Card */}
       <div className={`w-full max-w-sm ${THEMES[theme].card} backdrop-blur-lg rounded-2xl p-6 shadow-2xl`}>
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-xl font-bold text-white">Daily One Line</h1>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-lg text-sm shadow"
-          >
-            Logout
-          </button>
+
         </div>
 
         <textarea
